@@ -11,9 +11,11 @@ def save_data():
         view_fone = textbox_fone.get()
         view_email = textbox_email.get()
         view_obs = textbox_obs.get("1.0", END)
+        # comando de insert no banco de dados
         vquery= "INSERT INTO player_card (T_NAMECONTATCT, T_TELEFONECONTACT, T_EMAILCONTACT, T_OBS) VALUES ('"+view_name+"', '"+view_fone+"', '"+view_email+"', '"+view_obs+"')"
         banco.dml(vquery)
         
+        # Reseta a variável
         textbox_name.delete(0, END)
         textbox_fone.delete(0, END)
         textbox_email.delete(0, END)
