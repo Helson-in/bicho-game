@@ -1,31 +1,26 @@
-import random as rm
-import numpy as np
-import pandas as pd
+from tkinter import *
+from tkinter import ttk
 
-name = input("Nome: ")
-logra = input("Endr: ")
-cartel = input("Cartela: ")
-teste1 = np.array(
-    [name, logra, cartel]
-)
+windows_main = Tk()
+windows_main.title("Bolão System")
+windows_main.geometry("800x600")
 
-name
-logra
-cartel
-# a = np.shape() --> Visualizar numero de Linhas e Colunas da matriz
-# slice = Corte de matriz / Inicio e termino de Matriz // Linha, Coluna, Intervalo de elementos
-# Matriz2 = (a[0:1:2, 2:3]); Matriz1 = (a[0:1:-2, 2:3])
-# Função de Array para colocar numeros de 0 à X de forma automatica(ARANJOS)
-# Parametros = Inicio, Fim, Intervalo
-b = np.arange(0, 10, 1)
-# Função de Array para elementos em determinado intervalo
-# Parametros = Elem Inicial, Final, Quantidade de elementos entre o Inicial e o Final
-# endpoint = Não incluir elemento final
-c = np.linspace(1, 5, 10, endpoint=False)
-# Criação de matriz de 1 ou 0
-d = np.ones((2, 2))
-g = np.zeros(10)
-# Matriz de ordem X com elementos aleatorios
-e = np.random.rand(5)
+listaNomes = [["001", "Alysson", "Centro"], [
+    "002", "Jordao", "Centro"], ["003", "Eliane", "Centro"]]
 
-print(teste1)
+# Defindo a TreeView - colunas e o que mostrar
+tv = ttk.Treeview(windows_main, columns=(
+    "ID", "nome", "endereço"), show="headings")
+# Definir colunas - Nome, Largura minima, Largura
+tv.column("ID", minwidth=0, width=50)
+tv.column("nome", minwidth=0, width=250)
+tv.column("endereço", minwidth=0, width=100)
+tv.heading("ID", text="ID")
+tv.heading("nome", text="Nome")
+tv.heading("endereço", text="Endereço")
+tv.pack()
+
+for (i, n, f) in listaNomes:
+    tv.insert("", "end", values=(i, n, f))
+
+windows_main.mainloop()
