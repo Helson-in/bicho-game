@@ -3,7 +3,7 @@ from sqlite3 import Error
 import os
 
 path_app = os.path.dirname(__file__)
-name_bank = path_app + "\\agenda.db"
+name_bank = path_app + "\\databank.db"
 
 
 def connection_bank():
